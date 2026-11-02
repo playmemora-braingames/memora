@@ -20,7 +20,7 @@ const trainingChoiceKey='memora_training_preference_v1',trainingSeenKey='memora_
 const retryCounts=Object.create(null);
 // Memory Pairs: give players a little longer to inspect a mismatch after repeated misses.
 let pairMisses=0;
-function pairMismatchDelay(misses){return Math.min(1100,700+Math.max(0,misses-1)*200)}
+function pairMismatchDelay(misses){const pairs=Math.min(8,2+Math.floor(stage/2));return Math.min(1400,700+Math.max(0,pairs-4)*50+Math.max(0,misses-1)*200)}
 function studyBonus(){return Math.min(1500,(retryCounts[world.id+':'+stage]||0)*500)}
 function sequenceBonus(){return Math.min(450,(retryCounts[world.id+':'+stage]||0)*150)}
 // Distinguish consecutive flashes of the same tile without slowing every step.
